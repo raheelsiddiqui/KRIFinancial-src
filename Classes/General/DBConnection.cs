@@ -58,15 +58,17 @@ namespace Open_Miracle
                 path = Application.StartupPath + "\\Data\\COMP\\DBOpenMiracle.mdf";
             }
 
+            var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings[1].ConnectionString;
 
-            sqlcon = new SqlConnection(@"Data Source=" + strServer + ";AttachDbFilename=" + path + ";Integrated Security=True;Connect Timeout=120;User Instance=True");
+            sqlcon = new SqlConnection(connectionString);
+            //sqlcon = new SqlConnection(@"Data Source=" + strServer + ";AttachDbFilename=" + path + ";Integrated Security=True;Connect Timeout=120;User Instance=True");
             //;Max Pool Size=200
-              
-           /*
-           
-            sqlcon = new SqlConnection(@"Data Source=192.168.2.112\SQLS2008;database=DBOpenMiracle;user id='open';password='miracle';Connect Timeout=30;"); 
-               //----------------Server----------------------//
-              */
+
+            /*
+
+             sqlcon = new SqlConnection(@"Data Source=192.168.2.112\SQLS2008;database=DBOpenMiracle;user id='open';password='miracle';Connect Timeout=30;"); 
+                //----------------Server----------------------//
+               */
 
             /// <summary>
             /// SQL Express may take time to start up due to AutoClose Behaviour of SQLEXPRESS
